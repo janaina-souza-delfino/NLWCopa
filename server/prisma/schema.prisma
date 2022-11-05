@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// O Prisma automatiza o processo de criação de um banco de dados relacional, de gerenciamento de tabelas, colunas e relacionamentos de um db.
+// O Prisma é um ORM (Object Relational Mapping) que permite que você trabalhe com um banco de dados relacional como se fosse um banco de dados não relacional.
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Pool {
+  id        String   @id @default(cuid())
+  title     String
+  code      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
