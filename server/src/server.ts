@@ -30,7 +30,7 @@ async function bootstrap() {
     return { count };
   });
 
-  await fastify.listen({ port: 3333, host: '0.0.0.0' }); // Inicia o servidor na porta 3333
+  await fastify.listen({ port: 3333 /*host: '0.0.0.0'*/ }); // Inicia o servidor na porta 3333
 }
 
 bootstrap(); // Inicia o servidor
